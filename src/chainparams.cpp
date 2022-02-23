@@ -120,12 +120,12 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 4-byte int at any alignment.
          */
-        pchMessageStart[0] = 0xa2;
-        pchMessageStart[1] = 0x3d;
-        pchMessageStart[2] = 0x2f;
-        pchMessageStart[3] = 0xf3;
+        pchMessageStart[0] = 0xa7;
+        pchMessageStart[1] = 0xd4;
+        pchMessageStart[2] = 0xc2;
+        pchMessageStart[3] = 0xae;
         vAlertPubKey = ParseHex("04d244288a8c6ebbf491443ebfa1207275d71cb009f201c118b00cf8e77641c7f1e63e330ba909842c009af375c0f5c1c7368e8d7e2066168c40ce3cb629cf212f");
-        nDefaultPort = 23230;
+        nDefaultPort = 88111;
         bnProofOfWorkLimit = ~uint256(0) >> 1; // EXCL No need proof of work
         nSubsidyHalvingInterval = 210000;
         nMaxReorganizationDepth = 100;
@@ -134,15 +134,15 @@ public:
         nToCheckBlockUpgradeMajority = 10800; // Approximate expected amount of blocks in 7 days (1440*7.5)
         nMinerThreads = 0;
         nTargetSpacing = 1 * 60;        // 1 minute
-        nMaturity = 100;
-        nStakeMinDepth = 600;
+        nMaturity = 6;
+        nStakeMinDepth = 6;
         nFutureTimeDriftPoW = 7200;
         nFutureTimeDriftPoS = 180;
         nMasternodeCountDrift = 20;
-        nMaxMoneyOut = 21000000 * COIN;
+        nMaxMoneyOut = 999999999999 * COIN;
 
         /** Height or Time Based Activations **/
-        nLastPOWBlock = 250;
+        nLastPOWBlock = 100;
         nModifierUpdateBlock = 999999999;
         nZerocoinStartHeight = 999999999; //disabled zExcl
         nZerocoinStartTime = 1708214600; // October 17, 2017 4:30:00 AM
@@ -186,12 +186,11 @@ public:
         assert(hashGenesisBlock == uint256("000018acd81f025bbff343a186c9007a3cb13313a9af840ec1068fac6a7d6b3f"));
         assert(genesis.hashMerkleRoot == uint256("203360d2e2b89ba9718a8dfd7eabcde6e409ac1b558f950629d268e864aca200"));
 
-        vSeeds.push_back(CDNSSeedData("started", "94.130.50.254"));     //
-        vSeeds.push_back(CDNSSeedData("started", "seed1.exclusivecoin.pw"));     //
-        vSeeds.push_back(CDNSSeedData("started", "seed2.exclusivecoin.pw"));     //
+     //   vSeeds.push_back(CDNSSeedData("started", "94.130.50.254"));
+     
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,33);
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,137);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,25);
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,26);
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,161);
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x88)(0xB2)(0x1E).convert_to_container<std::vector<unsigned char> >();
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x88)(0xAD)(0xE4).convert_to_container<std::vector<unsigned char> >();
