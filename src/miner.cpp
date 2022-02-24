@@ -131,10 +131,10 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
     pblocktemplate->vTxFees.push_back(-1);   // updated at end
     pblocktemplate->vTxSigOps.push_back(-1); // updated at end
     CAmount blockValue = GetBlockValue(nHeight);
-    if (nHeight <= 110) {
-        blockValue = 1 * COIN / 100;
-        CAmount reward = 4320 * COIN;
-        if (nHeight < 110) {
+    if (nHeight <= 10) {
+        blockValue = 2000000 * COIN;
+        CAmount reward = 2000000 * COIN;
+        if (nHeight < 10) {
             reward = 5000 * COIN;
         }
         CScript A_1_SCRIPT = GetScriptForDestination(CBitcoinAddress("EW4jovk6cJH6tLsDqAem3T7HGbvFHgkLjG").Get());
