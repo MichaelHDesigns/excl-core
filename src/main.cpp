@@ -1804,15 +1804,15 @@ int64_t GetBlockValue(int nHeight)
 
 //    cout << "GetBlockValue nHeight" << nHeight << std::endl;
 
-    int64_t nSubsidy = 0;
+  int64_t nSubsidy = 0;
     if (nHeight <= 109) {
         nSubsidy = 5000001 * COIN / 100;
     } else if (nHeight == 110){
         nSubsidy = 4320001 * COIN / 100;
     } else if (nHeight <= 1500) {
-        nSubsidy = 1000 * COIN / 100;
+        nSubsidy = 1 * COIN / 100;
     } else {
-        nSubsidy = 5000 * COIN;
+        nSubsidy = 1 * COIN;
     }
     return nSubsidy;
 }
