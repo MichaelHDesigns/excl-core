@@ -1805,13 +1805,15 @@ int64_t GetBlockValue(int nHeight)
 //    cout << "GetBlockValue nHeight" << nHeight << std::endl;
 
     int64_t nSubsidy = 0;
-    if (nHeight <= 10) {
-        nSubsidy = 2000000 * COIN / 100;
-    } else if (nHeight == 11){
-        nSubsidy = 5000 * COIN / 100;
-    } else if (nHeight <= 1500) {
-        nSubsidy = 2000 * COIN / 100;
-    } else {
+     if (nHeight < 10) {
+        nSubsidy = 2000000 * COIN; // Premine Phase
+    } else if (nHeight <= 200000 && nHeight >= 10) {     
+        nSubsidy = 5000 * COIN; //  POW + POS
+    } else if (nHeight <= 350400 && nHeight >= 200000) {
+        nSubsidy = 2500 * COIN; // First Year
+    } else if (nHeight <= 700800 && nHeight >= 350401) {
+        nSubsidy = 1250 * COIN; // First Halving
+    } else if (nHeight >= 700801) {
         nSubsidy = 1000 * COIN;
     }
     return nSubsidy;
