@@ -72,14 +72,14 @@ bool CMasternodeConfig::read(std::string& strErr)
             if (port != 88111) {
                 strErr = _("Invalid port detected in masternode.conf") + "\n" +
                          strprintf(_("Line: %d"), linenumber) + "\n\"" + line + "\"" + "\n" +
-                         _("(must be 23230 for mainnet)");
+                         _("(must be 88111 for mainnet)");
                 streamConfig.close();
                 return false;
             }
-        } else if (port == 88111) {
+        } else if (port == 24230) {
             strErr = _("Invalid port detected in masternode.conf") + "\n" +
                      strprintf(_("Line: %d"), linenumber) + "\n\"" + line + "\"" + "\n" +
-                     _("(88111 could be used only on mainnet)");
+                     _("(24230 could be used only on mainnet)");
             streamConfig.close();
             return false;
         }
